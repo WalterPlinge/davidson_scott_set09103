@@ -17,7 +17,9 @@ def goodbye():
 
 @app.route("/drseuss")
 def drseuss():
-   return "One fish, two fish, red fish, blue fish"
+   with open("drseuss.txt", "r") as drseuss:
+      string = drseuss.read()
+      return string
 
 @app.route("/private")
 def private():
