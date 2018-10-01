@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import abort, Flask, redirect, url_for
 app = Flask(__name__)
 
 
@@ -18,7 +18,7 @@ def goodbye():
 @app.route("/drseuss")
 def drseuss():
    with open("drseuss.txt", "r") as drseuss:
-      string = drseuss.read()
+      string = drseuss.read().replace("\n", "<br>")
       return string
 
 @app.route("/private")
@@ -28,6 +28,10 @@ def private():
 @app.route("/login")
 def login():
    return "Now we would get username & password"
+
+@app.route("/force404")
+def force404():
+   abort(404)
 
 @app.errorhandler(404)
 def page_not_found(error):
