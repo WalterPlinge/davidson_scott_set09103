@@ -1,0 +1,14 @@
+{
+	"tracks": [
+		{
+			"title": "Piano man",
+			"artist": "Billy Joel",
+			"album": "Piano man",
+			"genre": [
+				"Rock"
+			],
+			"date": "1973.11.02",
+			"length": "5:40"
+		}
+	]
+}

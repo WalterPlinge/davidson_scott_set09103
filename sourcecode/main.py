@@ -1,11 +1,15 @@
 import ConfigParser
 import logging
 import os
+import sqlite3
+
+from flask import abort, flash, Flask, g, redirect, render_template, request, session, url_for
 from logging.handlers import RotatingFileHandler
-from flask import abort, flash, Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
+
+db_location = 'var/test.db'
 
 @app.route('/')
 def index():
