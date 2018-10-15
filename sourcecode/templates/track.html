@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if track %}
+<h3>{{ track['title'] }}</h3>
+<p>
+	Artist: <a href="{{ url_for('artist', artist=track['artist']) }}">
+		{{ track['artist'] }}
+	</a>
+	<br>
+	Released: {{ track['date'] }}<br>
+	Length: {{ track['length'] }}<br>
+	Genres:<br>
+	<ul>
+		{% for genre in track['genres'] %}
+		<li>
+			<a href="{{ url_for('genre', genre=genre) }}">
+				{{ genre }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	<br>
+	Albums:
+	<br>
+	<ul>
+		{% for album in track['albums'] %}
+		<li>
+			<a href="{{ url_for('album', album=album) }}">
+				{{ album }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul><br>
+	Info: {{ track['info'] }}
+</p>
+{% else %}
+<ul>
+	{% for track in tracks %}
+	<li>
+		<a href="{{ url_for('track', track=track['title']) }}">
+			{{ track['title'] }}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

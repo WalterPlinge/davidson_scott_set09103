@@ -3,13 +3,14 @@ import logging
 import os
 import sqlite3
 
-from flask import abort, flash, Flask, g, redirect, render_template, request, session, url_for
+from flask import abort, flash, Flask, g, json, redirect, render_template, request, session, url_for
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
 
-db_location = 'var/test.db'
+json_genre = json.load(open("data/genre.json"))
+json_tracks = json.load(open("data/tracks.json"))
 
 @app.route('/')
 def index():
@@ -34,16 +35,27 @@ def artist(artist=None):
 @app.route('/genre/')
 @app.route('/genre/<genre>')
 def genre(genre=None):
+	this_route = url_for('.genre')
+	app.logger.info('Logging a test message from ' + this_route)
 	if genre == None:
-		return 'Genres:'
-	return 'genre = ' + genre
+		genres = json_genre["genre"]
+		return render_template('genre.html', genres=genres)
+	else:
+		return render_template('genre.html')
 
 @app.route('/track/')
 @app.route('/track/<track>')
 def track(track=None):
 	if track == None:
-		return 'Tracks:'
-	return 'track = ' + track
+		tracks = json_tracks['tracks']
+		return render_template('track.html', tracks=tracks)
+	else:
+		tracks = json_tracks['tracks']
+		for t in tracks:
+			n = t['title']
+			if n.lower() == track.lower():
+				return render_template('track.html', track=t)
+		abort(404)
 
 @app.route('/drseuss/')
 def drseuss():

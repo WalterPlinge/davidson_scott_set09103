@@ -1,25 +1,104 @@
 {
 	"tracks": [
 		{
-			"title": "Piano man",
-			"artist": "Billy Joel",
-			"album": "Piano man",
-			"genre": [
-				"Rock"
+			"title": "Annie's Song",
+			"artist": "John Denver",
+			"date": "1974.06.01",
+			"length": "2:58",
+			"info": "'Annie's Song' (also known as 'Annie's Song (You Fill Up My Senses)') is a folk rock and country song recorded and written by singer-songwriter John Denver. The song was released as a single from Denver's album, Back Home Again. It was his second number-one song in the United States, occupying that spot for two weeks in July 1974. 'Annie's Song' also went to number one on the Easy Listening chart. Billboard ranked it as the No. 25 song for 1974. <br><br>It went to number one in the United Kingdom, where it was Denver's only major hit single",
+			"albums": [
+				"Back Home Again",
+				"Cool an' Green an' Shady"
 			],
-			"date": "1973.11.02",
-			"length": "5:40"
+			"genres": [
+				"Folk Rock",
+				"Country"
+			]
 		},
 		{
-			"title": "Uptown Girl",
-			"artist": "Billy Joel",
-			"album": "An Innocent Man",
-			"genre": [
-				"Pop",
-				"Rock"
+			"title": "Ball and Biscuit",
+			"artist": "The White Stripes",
+			"date": "2002.04.01",
+			"length": "7:19",
+			"info": "'Ball and Biscuit' is the eighth track on the album Elephant by American alternative rock band The White Stripes. Noteworthy are its use of Blues, extreme dynamic contrasts and guitar solos. At 7:19, it is the longest studio track recorded by the band. It was never released as a single, but has since become a favorite of fans.",
+			"albums": [
+				"Elephant"
 			],
-			"date": "1983.09.29",
-			"length": "3:18"
+			"genres": [
+				"Blues Rock",
+				"Hard Rock"
+			]
+		},
+		{
+			"title": "Big Iron",
+			"artist": "Marty Robbins",
+			"date": "1960.02.22",
+			"length": "3:56",
+			"info": "'Big Iron' is a country ballad written and performed by Marty Robbins, originally released as an album track on Gunfighter Ballads and Trail Songs in September 1959, then as a single in February 1960 with the song 'Saddle Tramp' as the B-side single. Members of the Western Writers of America chose it as one of the Top 100 Western songs of all time. <br><br>It tells the story of an Arizona Ranger's duel with an outlaw named Texas Red in the 'town of Agua Fria'. The townspeople predict the death of the Ranger, Texas Red having already killed 'one and nineteen men', but the Ranger kills Texas Red with the swiftness of the 'big iron on his hip.' This term refers to the gun the Ranger carries. Texas Red hadn't even 'cleared leather' - the Ranger's draw was that swift. <br><br>Robbins's version of the song reached #5 on the Billboard Country chart and #26 on the Billboard Hot 100 chart in April 1960. <br><br>The Ranger's 'Big Iron' actually existed. It was a one-off custom handgun chambered in .45 Colt and featured a Great Western copy of the Colt Single Action Army frame, Colt 1860 Army backstrap, grip frame and grips and a cut down 9 1/2\" Marlin rifle barrel. Marty Robbins saw it in Andy Anderson's famed North Hollywood gun shop in the late 1950s and wrote the song around it. Its current whereabouts are unknown. <br><br>The song is also featured in the video game Fallout: New Vegas on the in-game radio, 'Mojave Music Radio' and 'Radio New Vegas'.",
+			"albums": [
+				"Gunfighter Ballads and Trail Songs",
+				"Saddle Tramp"
+			],
+			"genres": [
+				"Country",
+				"Tex-Mex"
+			]
+		},
+		{
+			"title": "Fly Me to the Moon",
+			"artist": "Kaye Ballard",
+			"date": "1954.04.01",
+			"length": "2:14",
+			"info": "'Fly Me to the Moon', originally titled 'In Other Words', is a song written in 1954 by Bart Howard. Kaye Ballard made the first recording of the song the year it was written. Since then, it has become a frequently recorded jazz standard often featured in popular culture; Frank Sinatra's 1964 version was closely associated with the Apollo missions to the Moon. It is also used in the Japanese animated series Neon Genesis Evangelion as the closing music at the end of each episode.",
+			"albums": [],
+			"genres": [
+				"Jazz"
+			]
+		},
+		{
+			"title": "Free Fallin'",
+			"artist": "Tom Petty",
+			"date": "1989.10.27",
+			"length": "4:14",
+			"info": "'Free Fallin'' is the opening track from Tom Petty's solo debut album, Full Moon Fever (1989). The song was written by Petty and his writing partner for the album, Jeff Lynne, and features Lynne on backing vocals and bass guitar. The duo wrote and recorded the single in two days, making it the first song completed for Full Moon Fever. <br><br>'Free Fallin'' is one of Petty's most famous tracks as well as his longest-charting. It peaked at #7 on the Billboard Hot 100 singles chart in January 1990. Petty and The Heartbreakers performed the song at the MTV Video Music Awards in 1989, with Axl Rose and Izzy Stradlin, and at the February 2008 Super Bowl XLII Halftime Show. The song is ranked #177 on Rolling Stone's 500 Greatest Songs of All Time. It was featured in the film Jerry Maguire (1996) and The Sopranos episode 2.13, 'Funhouse' (2000). Lou Reed selected the song as one of his 'picks of 1989'. The song was #2 on the Spotify Global Viral 50 following the death of Petty.",
+			"albums": [
+				"Full Moon Fever",
+				"Down the Line",
+				"Love is a Long Road",
+				"Free Fallin'"
+			],
+			"genres": [
+				"Heartland Rock"
+			]
+		},
+		{
+			"title": "Mama Said Knock You Out",
+			"artist": "LL Cool J",
+			"date": "1991.02.26",
+			"length": "4:50",
+			"info": "'Mama Said Knock You Out' is a hit single by LL Cool J from his album of the same name. The song famously begins with the line 'Don't call it a comeback/I've been here for years.' Before 'Mama Said Knock You Out' was released, many people felt that LL Cool J's career was waning; his grandmother, who still believed in his talent, told him to 'knock out' all his critics. The song was produced by Marley Marl with help from DJ Bobcat along with LL. The single reached number 17 on the Billboard Hot 100, was certified Gold by the RIAA, and won the Grammy Award for Best Rap Solo Performance. The song takes various shots at Kool Moe Dee. <br><br>The song was featured in the Michael J. Fox action comedy The Hard Way, in which LL Cool J also appeared.",
+			"albums": [
+				"Mama Said Knock You Out"
+			],
+			"genres": [
+				"Golden Age Hip Hop"
+			]
+		},
+		{
+			"title": "Mr Blue Sky",
+			"artist": "Electric Light Orchestra",
+			"date": "1978.01.28",
+			"length": "5:06",
+			"info": "'Mr. Blue Sky' is a song by British rock group Electric Light Orchestra (ELO), featured on the band's seventh studio album Out of the Blue (1977). Written and produced by frontman Jeff Lynne, the song forms the fourth and final track of the 'Concerto for a Rainy Day' suite, on side three of the original double album. 'Mr. Blue Sky' was the second single to be taken from Out of the Blue, peaking at number 6 in the UK Singles Chart and number 35 in the United States.",
+			"albums": [
+				"Out of the Blue",
+				"One Summer Dream"
+			],
+			"genres": [
+				"Pop Rock",
+				"Art Rock",
+				"Progressive Rock"
+			]
 		}
 	]
 }
