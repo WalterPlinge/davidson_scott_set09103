@@ -2,15 +2,60 @@
 <html>
 
 	<head>
-		<title>Template Inheritance Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Musix</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+		<link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/Footer-Dark.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/Header-Dark.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 	</head>
 
 	<body>
-		<h1>Title stored in the base template</h1>
-		<h2>With a substitute</h2>
-
-		{% block content %} {% endblock %}
-
+		<div>
+			<div class="header-dark">
+				<nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+					<div class="container"><a class="navbar-brand" href="#">Musix</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+						<div class="collapse navbar-collapse" id="navcol-1">
+							<ul class="nav navbar-nav">
+								<li class="nav-item" role="presentation"><a class="nav-link" href="#">Home</a></li>
+								<li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Categories</a>
+									<div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Genres</a><a class="dropdown-item" role="presentation" href="#">Artists</a><a class="dropdown-item" role="presentation" href="#">Albums</a><a class="dropdown-item" role="presentation" href="#">Tracks</a></div>
+								</li>
+							</ul>
+							<form class="form-inline mr-auto" target="_self">
+								<div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
+							</form>
+						</div>
+					</div>
+				</nav>
+				<div class="container hero">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<h1 class="text-center">Musix.<br>The Music Database.</h1>
+							<div class=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-dark">
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+					</div>
+					<p class="copyright">Musix © 2017<br></p>
+				</div>
+			</footer>
+		</div>
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 	</body>
 
 </html>

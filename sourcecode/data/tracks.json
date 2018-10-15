@@ -9,6 +9,17 @@
 			],
 			"date": "1973.11.02",
 			"length": "5:40"
+		},
+		{
+			"title": "Uptown Girl",
+			"artist": "Billy Joel",
+			"album": "An Innocent Man",
+			"genre": [
+				"Pop",
+				"Rock"
+			],
+			"date": "1983.09.29",
+			"length": "3:18"
 		}
 	]
 }
