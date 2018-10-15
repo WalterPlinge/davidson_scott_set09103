@@ -20,6 +20,7 @@ function reset() {
 	for (var i = 0; i < 9; ++i) {
 		grid[i] = ' ';
 	}
+	player = 'o';
 }
 
 function setup() {
