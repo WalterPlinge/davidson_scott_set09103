@@ -44,16 +44,12 @@ def album(urlalbum=None):
 	else:
 		for album in json_albums:
 			if album['title'].lower() == urlalbum.lower():
-
 				genres = []
 				tracks = []
-
 				for track in json_tracks:
 					for a in track['albums']:
 						if a.lower() == urlalbum.lower():
-
 							tracks.append(track['title'])
-
 							for genre in track['genres']:
 								genres.append(genre)
 
@@ -70,24 +66,19 @@ def artist(urlartist=None):
 	if urlartist == None:
 		artists = []
 		for track in json_tracks:
-			for artist in track['artist']:
-				artists.append(artist)
+			artists.append(track['artist'])
 
 		return render_template('artist.html', artists=list(set(artists)))
 
 	else:
 		for artist in json_artists:
 			if artist['title'].lower() == urlartist.lower():
-
 				genres = []
 				albums = []
 				tracks = []
-
 				for track in json_tracks:
 					if track['artist'].lower() == urlartist.lower():
-
 						tracks.append(track['title'])
-
 						for album in track['albums']:
 							albums.append(album)
 
@@ -114,19 +105,14 @@ def genre(urlgenre=None):
 	else:
 		for genre in json_genres:
 			if genre['title'].lower() == urlgenre.lower():
-
 				albums = []
 				artists = []
 				tracks = []
-
 				for track in json_tracks:
 					for g in track['genres']:
 						if g.lower() == urlgenre.lower():
-
 							artists.append(track['artist'])
-
 							tracks.append(track['title'])
-
 							for a in track['albums']:
 								albums.append(a)
 
@@ -143,7 +129,7 @@ def track(urltrack=None):
 	if urltrack == None:
 		tracks = []
 		for track in json_tracks:
-			tracks.append(track)
+			tracks.append(track['title'])
 
 		return render_template('track.html', tracks=list(set(tracks)))
 
@@ -194,14 +180,15 @@ def remove():
 	session.pop('name', None)
 	return 'removed key \'name\' from session'
 
-@app.route('/bootstrap/')
-def bootstrap():
-	return render_template('bootstrap.html')
-
 @app.route('/ttt/')
 @app.route('/ttt/<path>')
 def ttt(path=None):
-	return render_template('sketch.html', sketch = '/static/js/ttt.js')
+	return render_template('sketch.html', sketch='/static/js/ttt.js')
+
+@app.route('/chess/')
+@app.route('/chess/<path>')
+def chess(path=None):
+	return render_template('sketch.html', sketch='/static/js/chess.js')
 
 @app.errorhandler(404)
 def page_not_found(error):
