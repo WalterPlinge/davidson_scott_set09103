@@ -190,9 +190,13 @@ def ttt(path=None):
 def chess(path=None):
 	return render_template('sketch.html', sketch='/static/js/chess.js')
 
+@app.route('/404/')
+def error():
+	return render_template('error.html')
+
 @app.errorhandler(404)
 def page_not_found(error):
-	return render_template('error.html')
+	return redirect(url_for('.error'))
 
 def init(app):
 	config = ConfigParser.ConfigParser()
