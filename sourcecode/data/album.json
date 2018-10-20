@@ -1,0 +1,49 @@
+{
+	"albums": [
+		{
+			"title": "Back Home Again",
+			"artist": "John Denver",
+			"date": "1974.06.15",
+			"info": [
+				"Back Home Again is the eighth studio album by singer-songwriter John Denver released in June, 1974.",
+				"The multi-platinum album contained the hit singles 'Annie's Song' (#1 pop, #1 adult contemporary), and 'Back Home Again' (#5 pop, #1 AC, #1 country). In addition, the studio versions of 'Thank God I'm a Country Boy' and 'Sweet Surrender' appear on this album.",
+				"The song 'Grandma's Feather Bed' was written by banjoist Jim Connor, of the New Kingston Trio, based on a verse he wrote for his grandmother. Denver first heard Connor playing the song in 1968. Connor played on Denver's recording, and toured with the singer.",
+				"The song 'The Music is You' is a bonus track on the 1998 reissue of Rocky Mountain Christmas.",
+				"On the cover, John is shown with his then-wife Ann Martell."
+			]
+		},
+		{
+			"title": "Elephant",
+			"artist": "The White Stripes",
+			"date": "2003.04.01",
+			"info": [
+				"Elephant is the fourth studio album by American rock duo The White Stripes. It was released on April 1, 2003, through V2, XL, and Third Man. The album garnered near unanimous critical acclaim and commercial success, earning a nomination for Album of the Year and a win for Best Alternative Music Album at the 46th Grammy Awards in 2004, peaking at number six in the US Billboard charts and topping the UK album charts.",
+				"In later years the album has often been cited as the White Stripes' best work and one of the best albums of the 2000s; Rolling Stone magazine ranked it 390th on its list of 'The 500 Greatest Albums of All Time' and later, the fifth-best of the decade. Third Man Records released a limited edition red, black and white vinyl reissue of Elephant on April 20, 2013, in celebration of the album's 10-year anniversary, as a Record Store Day exclusive."
+			]
+		},
+		{
+			"title": "Gunfighter Ballads and Trail Songs",
+			"artist": "Marty Robbins",
+			"date": "1959.09.01",
+			"info": [
+				"Gunfighter Ballads and Trail Songs is an album released by Marty Robbins on the Columbia Records label in September 1959, peaking at #6 on the U.S. pop albums chart. It was recorded on April 7, 1959, and was certified a gold record by the RIAA in 1965. It is perhaps best known for Robbins' most successful single, 'El Paso', a major hit on both the country and pop music charts. It reached #1 in both charts at the start of 1960 and won the Grammy Award for Best Country & Western Recording the following year. In 2017, the album was selected for preservation in the National Recording Registry by the Library of Congress as being 'culturally, historically, or artistically significant.'"
+			]
+		},
+		{
+			"title": "Full Moon Fever",
+			"artist": "Tom Petty",
+			"date": "1989.04.24",
+			"info": [
+				"Full Moon Fever is the debut solo studio album by Tom Petty, released on April 24, 1989, by MCA Records. It features contributions from members of his band the Heartbreakers, notably Mike Campbell, as well as Jeff Lynne, Roy Orbison (who died prior to its release), and George Harrison, Petty's bandmates in the Traveling Wilburys. The record shows Petty exploring his musical roots with nods to his influences. The songwriting is mainly collaborations between Petty and Lynne, who was also a producer on the album. The album became a commercial and critical success peaking at No. 3 on the U.S. Billboard 200 and being certified 5× platinum in the United States and 6× platinum in Canada."
+			]
+		},
+		{
+			"title": "Out of the Blue",
+			"artist": "Electric Light Orchestra",
+			"date": "1977.10.03",
+			"info": [
+				"Out of the Blue is the seventh studio album by the British rock group Electric Light Orchestra (ELO), released in October 1977. Written and produced by ELO frontman Jeff Lynne, the double album is among the most commercially successful records in the group's history, selling about 10 million copies worldwide."
+			]
+		}
+	]
+}

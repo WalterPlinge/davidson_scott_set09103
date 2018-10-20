@@ -1,8 +1,52 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 {% block content %}
+
+{% if genre %}
+
+<h3>{{ genre['title'] }}</h3>
+
+<br><b>Info:</b>
+{% for i in genre['info'] %}
+<p>{{ i }}</p>
+{% endfor %}
+
+<div class="grid-container-three">
+	<div class="grid-item">
+		<b>Artists:</b>
+		<ul>
+			{% for artist in artists %}
+			<li><a href="{{ url_for('artist', urlartist=artist) }}">{{ artist }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Albums:</b>
+		<ul>
+			{% for album in albums %}
+			<li><a href="{{ url_for('album', urlalbum=album) }}">{{ album }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Tracks:</b>
+		<ul>
+			{% for track in tracks %}
+			<li><a href="{{ url_for('track', urltrack=track) }}">{{ track }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+{% else %}
+
+<p><b>Genres</b></p>
 <ul>
 	{% for genre in genres %}
-	<li>{{ genre }}</li>
+	<li><a href="{{ url_for('genre', urlgenre=genre) }}">{{ genre }}</a></li>
 	{% endfor %}
 </ul>
+
+{% endif %}
+
 {% endblock %}

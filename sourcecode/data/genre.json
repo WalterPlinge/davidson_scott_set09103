@@ -1,10 +1,50 @@
 {
-	"genre": [
-		"Jazz",
-		"Rock",
-		"Blues",
-		"Metal",
-		"Swing",
-		"Electronic"
+	"genres": [
+		{
+			"title": "Folk Rock",
+			"info": [
+				"Folk rock is a hybrid music genre combining elements of folk music and rock music, which arose in the United States and the United Kingdom in the mid-1960s. In the U.S., folk rock emerged from the folk music revival and the influence that the Beatles and other British Invasion bands had on members of that movement. Performers such as Bob Dylan and the Byrds—several of whose members had earlier played in folk ensembles—attempted to blend the sounds of rock with their preexisting folk repertoire, adopting the use of electric instrumentation and drums in a way previously discouraged in the U.S. folk community. The term 'folk rock' was initially used in the U.S. music press in June 1965 to describe the Byrds' music."
+			]
+		},
+		{
+			"title": "Country",
+			"info": [
+				"Country music, also known as country and western (or simply country), and hillbilly music, is a genre of popular music that originated in the southern United States in the early 1920s. It takes its roots from genres such as folk music (especially Appalachian folk and Western music) and blues.",
+				"Country music often consists a lot of ballads and dance tunes with generally simple forms, folk lyrics, and harmonies accompanied by mostly string instruments such as banjos, electric and acoustic guitars, steel guitars (such as pedal steels and dobros), and fiddles as well as harmonicas. Blues modes have been used extensively throughout its recorded history.",
+				"According to Lindsey Starnes, the term country music gained popularity in the 1940s in preference to the earlier term hillbilly music; it came to encompass Western music, which evolved parallel to hillbilly music from similar roots, in the mid-20th century. In 2009 in the United States, country music was the most listened to rush hour radio genre during the evening commute, and second most popular in the morning commute.",
+				"The term country music is used today to describe many styles and subgenres. The origins of country music are the folk music of working class Americans, who blended popular songs, Irish and Celtic fiddle tunes, traditional English ballads, cowboy songs, and various musical traditions from European immigrants."
+			]
+		},
+		{
+			"title": "Blues Rock",
+			"info": [
+				"Blues-rock is a fusion genre combining elements of blues and rock. It is mostly an electric ensemble-style music with instrumentation similar to electric blues and rock: electric guitar, electric bass, and drums, often with Hammond organ. From its beginnings in the early- to mid-1960s, blues rock has gone through several stylistic shifts and along the way it inspired and influenced hard rock, Southern rock, and early heavy metal. Blues-rock continues to be an influence in the 2010s, with performances and recordings by popular artists.",
+				"Blues-rock started with rock musicians in the United Kingdom and the United States performing American blues songs. They typically recreated electric Chicago-style blues songs, such as those by Muddy Waters, Jimmy Reed, Howlin' Wolf, and Albert King, at faster tempos and with a more aggressive sound common to rock. In the UK, the style was popularized by groups such as the Rolling Stones, the Yardbirds, and the Animals, who managed to place blues songs into the pop charts. In the US, Lonnie Mack, the Paul Butterfield Blues Band, and Canned Heat were among the earliest exponents and 'attempted to play long, involved improvisations which were commonplace on jazz records'. John Mayall & the Bluesbreakers and Peter Green's Fleetwood Mac also developed this more instrumental, but the traditional-based style in the UK, while the late 1960s and early 1970s groups, including Ten Years After, Savoy Brown, the Climax Blues Band, and Foghat became more hard rock oriented. In the US, Johnny Winter, the Allman Brothers Band, and ZZ Top represented a hard rock trend.",
+				"Although around this time, the differences between blues-rock and hard rock lessened, there was also a return to more blues-influenced styles. In the 1980s, the Fabulous Thunderbirds and Stevie Ray Vaughan, recorded their best-known works and the 1990s saw guitarists Gary Moore, Jeff Healey, and Kenny Wayne Shepherd become popular concert attractions. Groups such as the Jon Spencer Blues Explosion and the White Stripes, brought an edgier, more diverse style into the 2000s, as do contemporary artists such as the Black Keys."
+			]
+		},
+		{
+			"title": "Hard Rock",
+			"info": [
+				"Hard rock is a loosely defined subgenre of rock music that began in the mid-1960s, with the garage, psychedelic and blues rock movements. It is typified by a heavy use of aggressive vocals, distorted electric guitars, bass guitar, drums, and often accompanied with keyboards.",
+				"Hard rock developed into a major form of popular music in the 1970s, with notable bands such as AC/DC, the Who, Led Zeppelin, Queen, Deep Purple, Aerosmith, Kiss and Van Halen. During the 1980s, some hard rock bands moved away from their hard rock roots and more towards pop rock, while others began to return to a hard rock sound. Established bands made a comeback in the mid-1980s and it reached a commercial peak in the 1980s, with glam metal bands like Bon Jovi and Def Leppard and the rawer sounds of Guns N' Roses, which followed up with great success in the later part of that decade. Hard rock began losing popularity with the commercial success of R&B, hip-hop, urban pop, grunge and later Britpop in the 1990s.",
+				"Despite this, many post-grunge bands adopted a hard rock sound and in the 2000s there came a renewed interest in established bands, attempts at a revival, and new hard rock bands that emerged from the garage rock and post-punk revival scenes. Out of this movement came garage rock bands like the White Stripes, the Strokes, Interpol and, later on, the Black Keys. In the 2000s, only a few hard rock bands from the 1970s and 1980s managed to sustain highly successful recording careers."
+			]
+		},
+		{
+			"title": "Tex-Mex",
+			"info": [
+				"Tex-Mex (from Texan and Mexican) is a fusion of Mexican and American cuisines, deriving from the culinary creations of the Tejano people living in Texas. It has spread from border states such as Texas and others in the Southwestern United States to the rest of the country as well as Canada. Tex-Mex is most popular in Texas and neighboring areas, especially nearby states in both the US and Mexico.",
+				"Tex-Mex is a subtype of Southwestern cuisine found in Arizona, New Mexico, Nevada, Colorado, and Utah."
+			]
+		},
+		{
+			"title": "Jazz",
+			"info": [
+				"Jazz is a music genre that originated in the African-American communities of New Orleans, United States, in the late 19th and early 20th centuries, and developed from roots in blues and ragtime. Jazz is seen by many as 'America's classical music'. Since the 1920s Jazz Age, jazz has become recognized as a major form of musical expression. It then emerged in the form of independent traditional and popular musical styles, all linked by the common bonds of African-American and European-American musical parentage with a performance orientation. Jazz is characterized by swing and blue notes, call and response vocals, polyrhythms and improvisation. Jazz has roots in West African cultural and musical expression, and in African-American music traditions including blues and ragtime, as well as European military band music. Intellectuals around the world have hailed jazz as 'one of America's original art forms'.",
+				"As jazz spread around the world, it drew on different national, regional, and local musical cultures, which gave rise to many distinctive styles. New Orleans jazz began in the early 1910s, combining earlier brass-band marches, French quadrilles, biguine, ragtime and blues with collective polyphonic improvisation. In the 1930s, heavily arranged dance-oriented swing big bands, Kansas City jazz, a hard-swinging, bluesy, improvisational style and Gypsy jazz (a style that emphasized musette waltzes) were the prominent styles. Bebop emerged in the 1940s, shifting jazz from danceable popular music toward a more challenging 'musician's music' which was played at faster tempos and used more chord-based improvisation. Cool jazz developed near the end of the 1940s, introducing calmer, smoother sounds and long, linear melodic lines.",
+				"The 1950s saw the emergence of free jazz, which explored playing without regular meter, beat and formal structures, and in the mid-1950s, hard bop emerged, which introduced influences from rhythm and blues, gospel, and blues, especially in the saxophone and piano playing. Modal jazz developed in the late 1950s, using the mode, or musical scale, as the basis of musical structure and improvisation. Jazz-rock fusion appeared in the late 1960s and early 1970s, combining jazz improvisation with rock music's rhythms, electric instruments, and highly amplified stage sound. In the early 1980s, a commercial form of jazz fusion called smooth jazz became successful, garnering significant radio airplay. Other styles and genres abound in the 2000s, such as Latin and Afro-Cuban jazz."
+			]
+		}
 	]
 }

@@ -1,1 +1,16 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Genre of the week:</h3>
+<h4><a href="{{ url_for('genre', urlgenre=genre) }}">{{ genre }}</a></h4>
+
+<h3>Artist of the week:</h3>
+<h4><a href="{{ url_for('artist', urlartist=artist) }}">{{ artist }}</a></h4>
+
+<h3>Album of the week:</h3>
+<h4><a href="{{ url_for('album', urlalbum=album) }}">{{ album }}</a></h4>
+
+<h3>Track of the week:</h3>
+<h4><a href="{{ url_for('track', urltrack=track) }}">{{ track }}</a></h4>
+
+{% endblock %}
