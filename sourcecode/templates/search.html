@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Search results for "{{ term }}":</h3>
+
+<div class="grid-container-four">
+	<div class="grid-item">
+		<b>Genres:</b>
+		<ul>
+			{% for genre in genres %}
+			<li><a href="{{ url_for('genre', urlgenre=genre) }}">{{ genre }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Albums:</b>
+		<ul>
+			{% for album in albums %}
+			<li><a href="{{ url_for('album', urlalbum=album) }}">{{ album }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Artists:</b>
+		<ul>
+			{% for artist in artists %}
+			<li><a href="{{ url_for('artist', urlartist=artist) }}">{{ artist }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Tracks:</b>
+		<ul>
+			{% for track in tracks %}
+			<li><a href="{{ url_for('track', urltrack=track) }}">{{ track }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+{% endblock %}

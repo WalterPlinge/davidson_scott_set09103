@@ -10,20 +10,31 @@ from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 app.secret_key = os.urandom(64)
 
-json_albums = json.load(open("data/album.json"))['albums']
-json_artists = json.load(open("data/artist.json"))['artists']
-json_genres = json.load(open("data/genre.json"))['genres']
-json_tracks = json.load(open("data/tracks.json"))['tracks']
+# File paths
+json_albums = 'data/album.json'
+json_artists = 'data/artist.json'
+json_genres = 'data/genre.json'
+json_tracks = 'data/tracks.json'
+
+# Load files
+def loadAlbums():
+	return json.load(open(json_albums))['albums']
+def loadArtists():
+	return json.load(open(json_artists))['artists']
+def loadGenres():
+	return json.load(open(json_genres))['genres']
+def loadTracks():
+	return json.load(open(json_tracks))['tracks']
 
 @app.route('/')
 def index():
 	this_route = url_for('.index')
 	app.logger.info('Logging a test message from ' + this_route)
 
-	genre = random.choice(json_genres)['title']
-	artist = random.choice(json_artists)['title']
-	album = random.choice(json_albums)['title']
-	track = random.choice(json_tracks)['title']
+	genre = random.choice(loadGenres())['title']
+	artist = random.choice(loadArtists())['title']
+	album = random.choice(loadAlbums())['title']
+	track = random.choice(loadTracks())['title']
 
 	return render_template('index.html', pagetitle='Musix', genre=genre, artist=artist, album=album, track=track)
 
@@ -32,21 +43,22 @@ def index():
 def album(urlalbum=None):
 	this_route = url_for('.album')
 	app.logger.info('Logging a request from ' + this_route)
-
+	# Collect all albums
 	if urlalbum == None:
 		albums = []
-		for track in json_tracks:
+		for track in loadTracks():
 			for album in track['albums']:
 				albums.append(album)
 
 		return render_template('album.html', albums=list(set(albums)))
-
+	# Collect all album data
 	else:
-		for album in json_albums:
+		for album in loadAlbums():
 			if album['title'].lower() == urlalbum.lower():
 				genres = []
 				tracks = []
-				for track in json_tracks:
+				# Genre and track data
+				for track in loadTracks():
 					for a in track['albums']:
 						if a.lower() == urlalbum.lower():
 							tracks.append(track['title'])
@@ -62,21 +74,22 @@ def album(urlalbum=None):
 def artist(urlartist=None):
 	this_route = url_for('.artist')
 	app.logger.info('Logging a request from ' + this_route)
-
+	# Collect all artists
 	if urlartist == None:
 		artists = []
-		for track in json_tracks:
+		for track in loadTracks():
 			artists.append(track['artist'])
 
 		return render_template('artist.html', artists=list(set(artists)))
-
+	# Collect all artist data
 	else:
-		for artist in json_artists:
+		for artist in loadArtists():
 			if artist['title'].lower() == urlartist.lower():
 				genres = []
 				albums = []
 				tracks = []
-				for track in json_tracks:
+				# Collect genres, albums, tracks
+				for track in loadTracks():
 					if track['artist'].lower() == urlartist.lower():
 						tracks.append(track['title'])
 						for album in track['albums']:
@@ -94,21 +107,23 @@ def artist(urlartist=None):
 def genre(urlgenre=None):
 	this_route = url_for('.genre')
 	app.logger.info('Logging a request from ' + this_route)
-
+	# Collect all genres
 	if urlgenre == None:
 		genres = []
-		for track in json_tracks:
+		for track in loadTracks():
 			for genre in track['genres']:
 				genres.append(genre)
 
 		return render_template('genre.html', genres=list(set(genres)))
+	# Collect all genre data
 	else:
-		for genre in json_genres:
+		for genre in loadGenres():
 			if genre['title'].lower() == urlgenre.lower():
 				albums = []
 				artists = []
 				tracks = []
-				for track in json_tracks:
+				# Collect albums, artists, tracks
+				for track in loadTracks():
 					for g in track['genres']:
 						if g.lower() == urlgenre.lower():
 							artists.append(track['artist'])
@@ -125,60 +140,163 @@ def genre(urlgenre=None):
 def track(urltrack=None):
 	this_route = url_for('.track')
 	app.logger.info('Logging a request from ' + this_route)
-
+	# Collect all tracks
 	if urltrack == None:
 		tracks = []
-		for track in json_tracks:
+		for track in loadTracks():
 			tracks.append(track['title'])
 
 		return render_template('track.html', tracks=list(set(tracks)))
-
+	# Collect all track data
 	else:
-		for track in json_tracks:
+		for track in loadTracks():
 			if track['title'].lower() == urltrack.lower():
 				return render_template('track.html', track=track)
 
 	abort(404)
 
+@app.route('/search/', methods=['GET', 'POST'])
+def search():
+	# Search for term
+	if request.method == 'POST':
+		term = request.form['search']
+		# Lists
+		albums = []
+		artists = []
+		genres = []
+		tracks = []
+		# Search albums
+		for album in loadAlbums():
+			if album['title'].lower().find(term.lower()) != -1:
+				albums.append(album['title'])
+				continue
+			if album['artist'].lower().find(term.lower()) != -1:
+				albums.append(album['title'])
+				artists.append(album['artist'])
+				continue
+			if album['date'].lower().find(term.lower()) != -1:
+				albums.append(album['title'])
+				continue
+			for info in album['info']:
+				if info.lower().find(term.lower()) != -1:
+					albums.append(album['title'])
+					break
+		# Search artists
+		for artist in loadArtists():
+			if artist['title'].lower().find(term.lower()) != -1:
+				artists.append(artist['title'])
+				continue
+			if artist['date'].lower().find(term.lower()) != -1:
+				artists.append(artist['title'])
+				continue
+			for info in artist['info']:
+				if info.lower().find(term.lower()) != -1:
+					artists.append(artist['title'])
+					break
+		# Search genres
+		for genre in loadGenres():
+			if genre['title'].lower().find(term.lower()) != -1:
+				genres.append(genre['title'])
+				continue
+			for info in genre['info']:
+				if info.lower().find(term.lower()) != -1:
+					genres.append(genre['title'])
+					break
+		# Search tracks
+		for track in loadTracks():
+			# If title matches
+			if track['title'].lower().find(term.lower()) != -1:
+				# Find valid albums
+				for album in loadAlbums():
+					for a in track['albums']:
+						if a.lower() == album['title'].lower():
+							albums.append(a)
+				# Find valid artist
+				for a in loadArtists():
+					if a['title'].lower() == track['artist'].lower():
+						artists.append(track['artist'])
+				# Find valid genre
+				for genre in loadGenres():
+					for g in track['genres']:
+						if g.lower() == genre['title'].lower():
+							genres.append(g)
+				tracks.append(track['title'])
+				continue
+			# If artist matches
+			if track['artist'].lower().find(term.lower()) != -1:
+				# Find valid albums
+				for album in track['albums']:
+					for a in loadAlbums():
+						if a['title'].lower() == album.lower():
+							albums.append(album)
+				# Find valid artist
+				for a in loadArtists():
+					if a['title'].lower() == track['artist'].lower():
+						artists.append(track['artist'])
+				# Find valid genres
+				for genre in track['genres']:
+					for g in loadGenres():
+						if g['title'].lower() == genre.lower():
+							genres.append(genre)
+				tracks.append(track['title'])
+				continue
+			# If date matches
+			if track['date'].lower().find(term.lower()) != -1:
+				tracks.append(track['title'])
+				continue
+			# If length matches
+			if track['length'].lower().find(term.lower()) != -1:
+				tracks.append(track['title'])
+				continue
+			# If album matches
+			for album in track['albums']:
+				if album.lower().find(term.lower()) != -1:
+					# Find valid album
+					for a in loadAlbums():
+						if a['title'].lower() == album.lower():
+							albums.append(album)
+					# Find valid artist
+					for a in loadArtists():
+						if a['title'].lower() == track['artist'].lower():
+							artists.append(track['artist'])
+					# Find valid genres
+					for genre in track['genres']:
+						for g in loadGenres():
+							if g['title'].lower() == genre.lower():
+								genres.append(genre)
+					tracks.append(track['title'])
+					break
+			# If genre matches
+			for genre in track['genres']:
+				if genre.lower().find(term.lower()) != -1:
+					# Find valid album
+					for album in track['albums']:
+						for a in loadAlbums():
+							if a['title'].lower() == album.lower():
+								albums.append(album)
+					# Find valid artist
+					for a in loadArtists():
+						if a['title'].lower() == track['artist'].lower():
+							artists.append(track['artist'])
+					# Find valid genres
+					for g in loadGenres():
+						if g['title'].lower() == genre.lower():
+							genres.append(genre)
+					tracks.append(track['title'])
+					break
+			for info in track['info']:
+				if info.lower().find(term.lower()) != -1:
+					tracks.append(track['title'])
+					break
+
+		return render_template('search.html', term=term, albums=list(set(albums)), artists=list(set(artists)), genres=list(set(genres)), tracks=list(set(tracks)))
+	else:
+		return redirect(url_for('.index'))
+
 @app.route('/drseuss/')
 def drseuss():
 	with open('static/drseuss.txt', 'r') as drseuss:
 		return drseuss.read().replace('\n', '<br>')
-
-@app.route('/login/')
-@app.route('/login/<message>')
-def login(message=None):
-	if message != None:
-		flash(message)
-	else:
-		flash(u'A default message')
-	return redirect(url_for('index'))
-
-@app.route('/account/', methods=['GET', 'POST'])
-def account():
-	if request.method == 'POST':
-		print request.form
-		name = request.form['name']
-		return 'Hello %s' % name
-	else:
-		return render_template('form.html')
-
-@app.route('/session/write/<name>/')
-def write(name=None):
-	session['name'] = name
-	return 'Wrote %s into \'name\' key of session' % name
-@app.route('/session/read/')
-def read():
-	try:
-		if (session['name']):
-			return str(session['name'])
-	except KeyError:
-		pass
-	return 'No session variable set for \'name\' key'
-@app.route('/session/remove/')
-def remove():
-	session.pop('name', None)
-	return 'removed key \'name\' from session'
 
 @app.route('/ttt/')
 @app.route('/ttt/<path>')
@@ -190,7 +308,7 @@ def ttt(path=None):
 def chess(path=None):
 	return render_template('sketch.html', sketch='/static/js/chess.js')
 
-@app.route('/404/')
+@app.route('/error/')
 def error():
 	return render_template('error.html')
 
