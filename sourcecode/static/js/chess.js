@@ -5,14 +5,14 @@ var selection;
 
 function reset() {
 	grid = [
-		["brook", "bbishop", "bknight", "bking", "bqueen", "bknight", "bbishop", "brook"],
+		["brook", "bknight", "bbishop", "bking", "bqueen", "bbishop", "bknight", "brook"],
 		["bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn"],
 		["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank"],
 		["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank"],
 		["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank"],
 		["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank"],
 		["wpawn", "wpawn", "wpawn", "wpawn", "wpawn", "wpawn", "wpawn", "wpawn"],
-		["wrook", "wbishop", "wknight", "wqueen", "wking", "wknight", "wbishop", "wrook"]
+		["wrook", "wknight", "wbishop", "wqueen", "wking", "wbishop", "wknight", "wrook"]
 	];
 	selection = [-1, -1];
 }
