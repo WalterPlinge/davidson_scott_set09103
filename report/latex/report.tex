@@ -85,14 +85,14 @@
     \maketitle
     
     \section{Introduction}
-    \paragraph{Musix} is a directory of information about music, including genres, artists, albums and tracks. It allows you to browse through the information using links to each related page. It also includes a search function to quickly find pages that contain specific information.
+    \paragraph{Musix} is a directory of information about music, including genres, artists, albums and tracks. It was written with the Flask framework, using Python. It utilised HTML, CSS and Javascript to provide content to the user. It allows the user to browse through information using links to each related page, and includes a search function to quickly find pages that contain specific information. There are specific pages for listing the genres, artists, albums and tracks, and each page on a specific entry details information and links to related pages.
     
     \figuremacro{h}{images/main.png}{}{The home page of Musix}{1.0}
     
     \section{Design}
     \paragraph{Musix} was designed for ease of use, combining multiple elements to provide the functionality required by the user. It has a header bar for easy navigation, and the rest of the page is dedicated to content. The URL hierarchy has also been structured in a way that makes sense, and even allows the user to navigate and search using the URL bar.
-    \paragraph{It} dynamically populates the page with any information available, and in the absence of content, will redirect errors to a page explaining to the user what has happened.
-    \paragraph{The} data is also designed to be structured in a way that is both efficient, keeping redundant data to a minimum, and easy to search for. It also allows links to be created even if the target page does not exist, allowing easy identification of pages that need to be populated with information
+    \paragraph{It} dynamically populates the page with any information available, and in the absence of content, will redirect errors to a page explaining to the user what has happened. This allows more pages to be added by justupdating the JSON data files with more information, links will be generated automatically.
+    \paragraph{The} data is also designed to be structured in a way that is both efficient, keeping redundant data to a minimum, and easy to search for. It also allows links to be created even if the target page does not exist, allowing easy identification of pages that need to be populated with information.
     
     \figuremacro{H}{images/URL.png}{}{The URL structure}{1.0}
     
@@ -101,6 +101,7 @@
     \paragraph{Another} interactive feature would be allowing users to create playlists of their favourite music, or based on their preferences. Pages could also benefit from the inclusion of other media, such as embedded audio and video for listening to music and watching music videos, and pictures of the artists or album covers.
     \paragraph{Searching} could also be improved by adding a fuzzy search option, allowing the user to make typos while still return relevant information, or suggesting pages based on prediction.
     \paragraph{Additionally}, Musix could add some styling options, allowing the user to switch between a light and dark theme, increasing readability in the daytime and nighttime.
+    \paragraph{More} information could also be added about each item, such as the track BPM, number of sales, awards won etc. It could also have a feature where users can upload information themselves, allowing faster growth of the website.
     
     \section{Critical Evaluation}
     \paragraph{Musix} has a simple URL hierarchy. I believe this works very well as it won't be confusing for users and it allows pages to be generated dynamically. I am particularly pleased with the HTML templates, as all the hyperlinks on a page are dynamically generated with the information given in the JSON data files. This allows the website to scale based only on what data is available in the JSON files, no other URL paths need to be hard coded. There is a down side to this, where a typo in the information would break the hyperlink, making it unable to find the page referenced. However, since editing the data is down to the maintainers, there's little room for large scale errors as it should be more consistent.
@@ -109,7 +110,8 @@
     \paragraph{The} biggest issue I currently see Musix facing is the amount of time to load the JSON data files, as they can become very large very quickly. There also isn't a particularly easy way to edit them or add/remove elements of the data objects.
     
     \section{Personal Evaluation}
-    \paragraph{I} feel that I performed adequately, being able to apply what I've learned about python and flask for routing requests, jinja templating for allowing dynamic HTML pages to be generated for the user, and producing a simple and efficient way of storing the data that the web app displays. I also feel that I managed well with what python knowledge I have to deal with all the data, collecting all the relevant information and managing to search through it all. I ran in to some trouble getting a nice interface to fill with content, choosing to settle for a simple, though functional, design with the help of bootstrap\cite{Bootstrap} and W3Schools\cite{W3Schools}. However, I definitely could have spent more time branching out my knowledge of HTML/CSS.
+    \paragraph{I} feel that I performed adequately, being able to apply what I've learned about python and flask for routing requests, jinja templating for allowing dynamic HTML pages to be generated for the user, and producing a simple and efficient way of storing the data that the web app displays. I also feel that I managed well with what python knowledge I have to deal with all the data, collecting all the relevant information and managing to search through it all. I ran in to some trouble getting a nice interface to fill with content, choosing to settle for a simple, though functional, design with the help of bootstrap\cite{Bootstrap} and W3Schools\cite{W3Schools}. However, I definitely could have spent more time branching out my knowledge of HTML/CSS. Opting to use bootstrap\cite{Bootstrap} did, however, allow me to have a consistent style, both visually and structuring my HTML pages.
+    
     
     \bibliographystyle{ieeetr}
     \bibliography{references}
