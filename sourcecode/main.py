@@ -46,9 +46,8 @@ def album(urlalbum=None):
 	# Collect all albums
 	if urlalbum == None:
 		albums = []
-		for track in loadTracks():
-			for album in track['albums']:
-				albums.append(album)
+		for album in loadAlbums():
+			albums.append(album['title'])
 
 		return render_template('album.html', albums=list(set(albums)))
 	# Collect all album data
@@ -77,8 +76,8 @@ def artist(urlartist=None):
 	# Collect all artists
 	if urlartist == None:
 		artists = []
-		for track in loadTracks():
-			artists.append(track['artist'])
+		for artist in loadArtists():
+			artists.append(artist['title'])
 
 		return render_template('artist.html', artists=list(set(artists)))
 	# Collect all artist data
@@ -110,9 +109,8 @@ def genre(urlgenre=None):
 	# Collect all genres
 	if urlgenre == None:
 		genres = []
-		for track in loadTracks():
-			for genre in track['genres']:
-				genres.append(genre)
+		for genre in loadGenre():
+			genres.append(genre['title'])
 
 		return render_template('genre.html', genres=list(set(genres)))
 	# Collect all genre data
