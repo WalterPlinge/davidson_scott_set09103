@@ -109,7 +109,7 @@ def genre(urlgenre=None):
 	# Collect all genres
 	if urlgenre == None:
 		genres = []
-		for genre in loadGenre():
+		for genre in loadGenres():
 			genres.append(genre['title'])
 
 		return render_template('genre.html', genres=list(set(genres)))
