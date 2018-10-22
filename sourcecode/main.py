@@ -36,7 +36,7 @@ def index():
 	album = random.choice(loadAlbums())['title']
 	track = random.choice(loadTracks())['title']
 
-	return render_template('index.html', pagetitle='Musix', genre=genre, artist=artist, album=album, track=track)
+	return render_template('index.html', pagetitle='Musix', genre=genre, artist=artist, album=album, track=track), 200
 
 @app.route('/album/')
 @app.route('/album/<urlalbum>')
@@ -49,7 +49,7 @@ def album(urlalbum=None):
 		for album in loadAlbums():
 			albums.append(album['title'])
 
-		return render_template('album.html', albums=list(set(albums)))
+		return render_template('album.html', albums=list(set(albums))), 200
 	# Collect all album data
 	else:
 		for album in loadAlbums():
@@ -64,9 +64,9 @@ def album(urlalbum=None):
 							for genre in track['genres']:
 								genres.append(genre)
 
-				return render_template('album.html', album=album, genres=list(set(genres)), tracks=list(set(tracks)))
+				return render_template('album.html', album=album, genres=list(set(genres)), tracks=list(set(tracks))), 200
 
-	abort(404)
+	abort(418)
 
 @app.route('/artist/')
 @app.route('/artist/<urlartist>')
@@ -79,7 +79,7 @@ def artist(urlartist=None):
 		for artist in loadArtists():
 			artists.append(artist['title'])
 
-		return render_template('artist.html', artists=list(set(artists)))
+		return render_template('artist.html', artists=list(set(artists))), 200
 	# Collect all artist data
 	else:
 		for artist in loadArtists():
@@ -97,9 +97,9 @@ def artist(urlartist=None):
 						for genre in track['genres']:
 							genres.append(genre)
 
-				return render_template('artist.html', artist=artist, albums=list(set(albums)), genres=list(set(genres)), tracks=list(set(tracks)))
+				return render_template('artist.html', artist=artist, albums=list(set(albums)), genres=list(set(genres)), tracks=list(set(tracks))), 200
 
-	abort(404)
+	abort(418)
 
 @app.route('/genre/')
 @app.route('/genre/<urlgenre>')
@@ -112,7 +112,7 @@ def genre(urlgenre=None):
 		for genre in loadGenres():
 			genres.append(genre['title'])
 
-		return render_template('genre.html', genres=list(set(genres)))
+		return render_template('genre.html', genres=list(set(genres))), 200
 	# Collect all genre data
 	else:
 		for genre in loadGenres():
@@ -129,9 +129,9 @@ def genre(urlgenre=None):
 							for a in track['albums']:
 								albums.append(a)
 
-				return render_template('genre.html', genre=genre, albums=list(set(albums)), artists=list(set(artists)), tracks=list(set(tracks)))
+				return render_template('genre.html', genre=genre, albums=list(set(albums)), artists=list(set(artists)), tracks=list(set(tracks))), 200
 
-	abort(404)
+	abort(418)
 
 @app.route('/track/')
 @app.route('/track/<urltrack>')
@@ -144,14 +144,14 @@ def track(urltrack=None):
 		for track in loadTracks():
 			tracks.append(track['title'])
 
-		return render_template('track.html', tracks=list(set(tracks)))
+		return render_template('track.html', tracks=list(set(tracks))), 200
 	# Collect all track data
 	else:
 		for track in loadTracks():
 			if track['title'].lower() == urltrack.lower():
-				return render_template('track.html', track=track)
+				return render_template('track.html', track=track), 200
 
-	abort(404)
+	abort(418)
 
 @app.route('/search/', methods=['GET', 'POST'])
 def search():
@@ -287,32 +287,41 @@ def search():
 					tracks.append(track['title'])
 					break
 
-		return render_template('search.html', term=term, albums=list(set(albums)), artists=list(set(artists)), genres=list(set(genres)), tracks=list(set(tracks)))
+		return render_template('search.html', term=term, albums=list(set(albums)), artists=list(set(artists)), genres=list(set(genres)), tracks=list(set(tracks))), 200
 	else:
-		return redirect(url_for('.index'))
+		return redirect(url_for('.index')), 200
 
 @app.route('/drseuss/')
 def drseuss():
 	with open('static/drseuss.txt', 'r') as drseuss:
-		return drseuss.read().replace('\n', '<br>')
+		return drseuss.read().replace('\n', '<br>'), 200
 
 @app.route('/ttt/')
 @app.route('/ttt/<path>')
 def ttt(path=None):
-	return render_template('sketch.html', sketch='/static/js/ttt.js')
+	return render_template('sketch.html', sketch='/static/js/ttt.js'), 200
 
 @app.route('/chess/')
 @app.route('/chess/<path>')
 def chess(path=None):
-	return render_template('sketch.html', sketch='/static/js/chess.js')
+	return render_template('sketch.html', sketch='/static/js/chess.js'), 200
 
-@app.route('/error/')
-def error():
-	return render_template('error.html')
+@app.route('/error/<int:status>')
+def error(status=404):
+	message = ""
+	if status == 404:
+		message = "Sorry, the page you requested is not available."
+	if status == 418:
+		message = "Sorry, this page has not been added yet."
+	return render_template('error.html', message=message)
 
 @app.errorhandler(404)
-def page_not_found(error):
-	return redirect(url_for('.error'))
+def error404(error):
+	return redirect(url_for('.error', status=404))
+
+@app.errorhandler(418)
+def error418(error):
+	return redirect(url_for('.error', status=418))
 
 def init(app):
 	config = ConfigParser.ConfigParser()
