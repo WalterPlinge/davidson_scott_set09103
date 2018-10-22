@@ -14,18 +14,18 @@
 		</ul>
 	</div>
 	<div class="grid-item">
-		<b>Albums:</b>
-		<ul>
-			{% for album in albums %}
-			<li><a href="{{ url_for('album', urlalbum=album) }}">{{ album }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="grid-item">
 		<b>Artists:</b>
 		<ul>
 			{% for artist in artists %}
 			<li><a href="{{ url_for('artist', urlartist=artist) }}">{{ artist }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="grid-item">
+		<b>Albums:</b>
+		<ul>
+			{% for album in albums %}
+			<li><a href="{{ url_for('album', urlalbum=album) }}">{{ album }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
