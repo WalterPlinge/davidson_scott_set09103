@@ -165,14 +165,7 @@ def search():
 		tracks = []
 		# Search albums
 		for album in loadAlbums():
-			if album['title'].lower().find(term.lower()) != -1:
-				albums.append(album['title'])
-				continue
-			if album['artist'].lower().find(term.lower()) != -1:
-				albums.append(album['title'])
-				artists.append(album['artist'])
-				continue
-			if album['date'].lower().find(term.lower()) != -1:
+			if album['title'].lower().find(term.lower()) != -1 or album['artist'].lower().find(term.lower()) != -1 or album['date'].lower().find(term.lower()) != -1:
 				albums.append(album['title'])
 				continue
 			for info in album['info']:
@@ -181,10 +174,7 @@ def search():
 					break
 		# Search artists
 		for artist in loadArtists():
-			if artist['title'].lower().find(term.lower()) != -1:
-				artists.append(artist['title'])
-				continue
-			if artist['date'].lower().find(term.lower()) != -1:
+			if artist['title'].lower().find(term.lower()) != -1 or artist['date'].lower().find(term.lower()) != -1:
 				artists.append(artist['title'])
 				continue
 			for info in artist['info']:
@@ -204,38 +194,10 @@ def search():
 		for track in loadTracks():
 			# If title matches
 			if track['title'].lower().find(term.lower()) != -1:
-				# Find valid albums
-				for album in loadAlbums():
-					for a in track['albums']:
-						if a.lower() == album['title'].lower():
-							albums.append(a)
-				# Find valid artist
-				for a in loadArtists():
-					if a['title'].lower() == track['artist'].lower():
-						artists.append(track['artist'])
-				# Find valid genre
-				for genre in loadGenres():
-					for g in track['genres']:
-						if g.lower() == genre['title'].lower():
-							genres.append(g)
 				tracks.append(track['title'])
 				continue
 			# If artist matches
 			if track['artist'].lower().find(term.lower()) != -1:
-				# Find valid albums
-				for album in track['albums']:
-					for a in loadAlbums():
-						if a['title'].lower() == album.lower():
-							albums.append(album)
-				# Find valid artist
-				for a in loadArtists():
-					if a['title'].lower() == track['artist'].lower():
-						artists.append(track['artist'])
-				# Find valid genres
-				for genre in track['genres']:
-					for g in loadGenres():
-						if g['title'].lower() == genre.lower():
-							genres.append(genre)
 				tracks.append(track['title'])
 				continue
 			# If date matches
@@ -249,37 +211,11 @@ def search():
 			# If album matches
 			for album in track['albums']:
 				if album.lower().find(term.lower()) != -1:
-					# Find valid album
-					for a in loadAlbums():
-						if a['title'].lower() == album.lower():
-							albums.append(album)
-					# Find valid artist
-					for a in loadArtists():
-						if a['title'].lower() == track['artist'].lower():
-							artists.append(track['artist'])
-					# Find valid genres
-					for genre in track['genres']:
-						for g in loadGenres():
-							if g['title'].lower() == genre.lower():
-								genres.append(genre)
 					tracks.append(track['title'])
 					break
 			# If genre matches
 			for genre in track['genres']:
 				if genre.lower().find(term.lower()) != -1:
-					# Find valid album
-					for album in track['albums']:
-						for a in loadAlbums():
-							if a['title'].lower() == album.lower():
-								albums.append(album)
-					# Find valid artist
-					for a in loadArtists():
-						if a['title'].lower() == track['artist'].lower():
-							artists.append(track['artist'])
-					# Find valid genres
-					for g in loadGenres():
-						if g['title'].lower() == genre.lower():
-							genres.append(genre)
 					tracks.append(track['title'])
 					break
 			for info in track['info']:
